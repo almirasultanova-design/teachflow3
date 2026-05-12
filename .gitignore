@@ -1,0 +1,21 @@
+node_modules/
+dist/
+build/
+.env
+.env.local
+*.log
+npm-debug.log*
+.DS_Store
+.vscode/
+.idea/
+
+# Local data
+server/data/lyricling.db
+server/data/lyricling.db-journal
+server/data/lyricling.db-wal
+server/data/lyricling.db-shm
+server/data/uploads/
+!server/data/uploads/.gitkeep
+
+# Cursor
+.cursor-tutor/

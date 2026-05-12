@@ -1,0 +1,26 @@
+{
+  "name": "lyricling",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Learn English through music — synced lyrics, contextual translations, and quizzes.",
+  "workspaces": [
+    "shared",
+    "server",
+    "client"
+  ],
+  "scripts": {
+    "install:all": "npm install",
+    "dev": "npm-run-all --parallel dev:server dev:client",
+    "dev:server": "npm run dev --workspace server",
+    "dev:client": "npm run dev --workspace client",
+    "build": "npm run build --workspace shared && npm run build --workspace server && npm run build --workspace client",
+    "seed": "npm run seed --workspace server",
+    "start": "npm run start --workspace server"
+  },
+  "devDependencies": {
+    "npm-run-all": "^4.1.5"
+  },
+  "engines": {
+    "node": ">=18.17"
+  }
+}

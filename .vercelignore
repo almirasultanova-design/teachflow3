@@ -1,0 +1,7 @@
+server/data
+server/dist
+server/.env
+server/.env.*
+**/*.db
+**/*.sqlite
+client/dist

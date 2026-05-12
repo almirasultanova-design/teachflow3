@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+  html, body, #root {
+    height: 100%;
+  }
+  body {
+    @apply bg-bg text-ink font-sans antialiased;
+    background:
+      radial-gradient(60rem 60rem at 80% -10%, rgba(185, 163, 255, 0.22), transparent 60%),
+      radial-gradient(50rem 50rem at -10% 120%, rgba(34, 211, 238, 0.16), transparent 60%),
+      #1a1c30;
+  }
+  /* Slightly heavier weight + tracking gives the brighter palette better presence. */
+  h1, h2, h3 { @apply font-semibold; letter-spacing: -0.01em; }
+  body { font-weight: 450; }
+  ::selection {
+    background: rgba(167, 139, 250, 0.35);
+    color: white;
+  }
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb {
+    background: #4a4d72;
+    border-radius: 999px;
+  }
+  ::-webkit-scrollbar-thumb:hover { background: #5e6190; }
+}
+
+@layer components {
+  .panel {
+    @apply bg-bg-panel/70 backdrop-blur border border-bg-ring/70 rounded-2xl;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl font-medium
+           transition-colors disabled:opacity-50 disabled:cursor-not-allowed select-none;
+  }
+  .btn-primary {
+    @apply btn bg-brand text-bg hover:bg-brand/90;
+  }
+  .btn-ghost {
+    @apply btn text-ink-muted hover:text-ink hover:bg-bg-soft;
+  }
+  .btn-outline {
+    @apply btn border border-bg-ring text-ink hover:bg-bg-soft;
+  }
+  .input {
+    @apply w-full px-3 py-2 rounded-xl bg-bg-soft border border-bg-ring text-ink
+           placeholder:text-ink-dim focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/30;
+  }
+  .chip {
+    @apply inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium
+           bg-bg-soft border border-bg-ring text-ink-muted;
+  }
+}
+
+/* Lyric word interactions */
+.lyric-word {
+  cursor: pointer;
+  border-radius: 4px;
+  padding: 0 1px;
+  transition: background-color 120ms ease;
+}
+.lyric-word:hover {
+  background-color: rgba(167, 139, 250, 0.18);
+}
+.lyric-word.is-saved {
+  background-color: rgba(244, 114, 182, 0.18);
+  text-decoration: underline dotted rgba(244, 114, 182, 0.7);
+  text-underline-offset: 4px;
+}
